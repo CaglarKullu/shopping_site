@@ -17,6 +17,7 @@ export default function ProductDetail() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {

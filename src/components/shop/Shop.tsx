@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "wouter";
+import { useCart } from "../../context/CartContext";
 
 // Define a Product type
 interface Product {
@@ -14,6 +15,8 @@ export default function Shop() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -38,16 +41,19 @@ export default function Shop() {
       <h1>🛒 Shop Page</h1>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}>
         {products.map((product) => (
-          <div key={product.id} style={{ border: "1px solid #ddd", padding: "10px", textAlign: "center" }}>
-            <Link href={`/shop/${product.id}`}>
+          <div style={{ border: "1px solid #ddd", padding: "10px", textAlign: "center" }}>
+          <Link href={`/shop/${product.id}`}>
+          <div key={product.id} >
               <img
                 src={product.images[0]}
                 alt={product.title}
-                style={{ width: "100%", height: "150px", objectFit: "cover", cursor: "pointer" }}
+                style={{ width: "100%", height: "20rem", objectFit: "cover", cursor: "pointer" }}
               />
-            </Link>
             <h3>{product.title}</h3>
             <p>${product.price}</p>
+          </div>
+          </Link>
+          <button onClick={() => addToCart({ id: product.id, title: product.title, price: product.price, images: product.images, quantity: 1 })} style={{ marginTop: "10px" }}>🛒 Add to Cart</button>
           </div>
         ))}
       </div>
