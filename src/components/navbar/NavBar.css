@@ -3,7 +3,7 @@
     justify-content: space-between;
     row-gap: 20px;
     align-items: center;
-    background-color: #efe8e8;
+    background-color: var(--depth-color);
     padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
