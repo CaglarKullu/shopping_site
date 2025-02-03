@@ -1,0 +1,195 @@
+:root {
+  --primary-color: #C8A878; /* Rich Earthy Beige (Background) */
+  --secondary-color: #B35E34; /* Deep Terracotta */
+  --accent1-color: #D6B8A3; /* Muted Soft Clay */
+  --accent2-color: #EAD6C0; /* Balanced Light Sand */
+  --depth-color: #E7DEC8; /* Warm Neutral for Shadows & Depth */
+  --text-color: #333333; /* Dark Gray */
+  --font-primary: 'Nunito', sans-serif;
+  --font-secondary: 'Merriweather', serif;
+  --spacing: 1.2rem;
+  --border-radius: 0.5rem;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-lines: 2; */
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing);
+  background-color: var(--secondary-color);
+  color: var(--depth-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.nav-left {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-left a {
+  text-decoration: none;
+  color: var(--depth-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-left a:hover {
+  color: var(--accent1-color);
+}
+
+.logo {
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Hero Section */
+.hero {
+  animation: fadeIn 1s ease-in-out;
+  background: var(--secondary-color);
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  color: var(--depth-color);
+  text-align: center;
+  width: 80%;
+  margin: 2rem auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Product Cards */
+.product-card {
+  background-color: var(--depth-color);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  width: 18rem;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.product-card:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+/* Featured Products Grid */
+
+.featured-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Buttons */
+.button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  background-color: var(--accent1-color);
+  color: var(--text-color);
+  transform: scale(1.05);
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--secondary-color);
+  color: var(--depth-color);
+  text-align: center;
+  padding: var(--spacing);
+  margin-top: 50px;
+}
+
+.footer a {
+  color: var(--accent1-color);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-left {
+      display: none;
+  }
+
+  .logo {
+      position: static;
+      transform: none;
+  }
+
+  .hamburger {
+      display: flex;
+  }
+
+  .nav-left.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: var(--secondary-color);
+      padding: var(--spacing);
+  }
+
+  .nav-left.active a {
+      padding: var(--spacing);
+      text-align: center;
+  }
+
+  .featured-products {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
