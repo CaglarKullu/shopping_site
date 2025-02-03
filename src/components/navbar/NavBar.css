@@ -1,0 +1,17 @@
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    row-gap: 20px;
+    align-items: center;
+    background-color: #efe8e8;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navBar a{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 2rem;
+    transition: background-color 0.3s ease;
+}
