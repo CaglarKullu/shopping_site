@@ -37,11 +37,11 @@ export default function Shop() {
   if (error) return <h2 style={{ color: "red" }}>{error}</h2>;
 
   return (
-    <div>
+    <div >
       <h1>🛒 Shop Page</h1>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}>
+      <div>
         {products.map((product) => (
-          <div style={{ border: "1px solid #ddd", padding: "10px", textAlign: "center" }}>
+          <div className="card">
           <Link href={`/shop/${product.id}`}>
           <div key={product.id} >
               <img
