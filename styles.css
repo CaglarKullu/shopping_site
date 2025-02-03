@@ -9,6 +9,7 @@
   --font-secondary: 'Merriweather', serif;
   --spacing: 1.2rem;
   --border-radius: 0.5rem;
+  --heading-color: #4A2C2A; /* Dark Brown */
 }
 
 body {
@@ -21,11 +22,18 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-secondary);
-    /* white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-lines: 2; */
+  color: var(--heading-color); /* Deep Terracotta */
+  margin-bottom: calc(var(--spacing) / 2);
+  text-shadow: 1px 1px 2px var(--depth-color);
 }
+
+/* For instance, you might want your main heading to be a bit larger and bolder */
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: var(--spacing);
+}
+
 
 /* Navbar Styling */
 .navbar {
@@ -92,6 +100,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease-in-out;
   text-align: center;
   width: 18rem;
+
 }
 
 .product-card:hover {
@@ -158,6 +167,73 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: underline;
 }
 
+/* Newsletter Container */
+.newsletter-container {
+  text-align: center;
+  margin-top: 50px;
+  padding: 0 20px;
+  background-color: var(--depth-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1rem;
+}
+
+/* Heading */
+.newsletter-heading {
+  font-family: var(--font-secondary);
+  color: var(--heading-color);
+  margin-bottom: var(--spacing);
+  font-size: 2rem;
+}
+
+/* Text */
+.newsletter-text {
+  font-family: var(--font-primary);
+  color: var(--text-color);
+  margin-bottom: calc(var(--spacing) / 2);
+  font-size: 1.1rem;
+}
+
+/* Newsletter Form Container */
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Email Input */
+.newsletter-input {
+  padding: 10px;
+  width: 250px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  border: 1px solid var(--accent1-color);
+  border-radius: var(--border-radius);
+
+}
+
+/* Subscribe Button */
+.newsletter-button {
+  padding: 10px 20px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+/* Button Hover State */
+.newsletter-button:hover {
+  background-color: var(--accent1-color);
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-left {
