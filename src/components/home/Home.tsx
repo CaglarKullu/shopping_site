@@ -4,6 +4,7 @@ import { Product } from "../../interfaces/product_interface";
 import { fetchAllProducts } from "../../services/product_service";
 import { textEllipsis } from "../../utils/text_ellipsis";
 import { randomizeList } from "../../utils/randomize_list";
+import TestimonialsCarousel from "../testimonials/TestimonialsCarousel";
 
 
 export default function Home() {
@@ -53,13 +54,13 @@ export default function Home() {
 
 
       {/* Featured Products Section */}
-      <h2 style={{ marginTop: "50px" }}>🔥 Featured Products</h2>
+      <h2> Featured Products</h2>
       <div className="featured-products">
         {featuredProducts.map((product) => (
           <div>
           <Link key={product.id} href={`/shop/${product.id}`}>
             <div className="product-card">
-              <img src={product.image} alt={product.title} style={{ width: "100%", height: "150px", objectFit: "cover" }} />
+              <img src={product.image} alt={product.title} style={{ width: "100%", height: "15rem", objectFit: "cover" }} />
               <h3>{textEllipsis(product.title, 55)}</h3>
               <p>${product.price}</p>
             </div>
@@ -68,18 +69,21 @@ export default function Home() {
         ))}
       </div>
       {/* Testimonials Section */}
-      <h2 style={{ marginTop: "50px" }}>💬 What Our Customers Say</h2>
-      <p>⭐⭐⭐⭐⭐ "Best online store! Fast delivery & amazing products!" - Jane D.</p>
-      <p>⭐⭐⭐⭐⭐ "Superb quality and customer service. Will shop again!" - Mark R.</p>
+      <TestimonialsCarousel />
 
       {/* Newsletter Signup */}
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <h2>📩 Join Our Newsletter</h2>
-        <p>Get exclusive discounts & updates!</p>
-        <input type="email" placeholder="Enter your email" style={{ padding: "10px", width: "250px" }} />
-        <button style={{ padding: "10px", marginLeft: "10px", cursor: "pointer" }}>Subscribe</button>
-      </div>
-
+      <div className="newsletter-container">
+  <h2 className="newsletter-heading">📩 Join Our Newsletter</h2>
+  <p className="newsletter-text">Get exclusive discounts & updates!</p>
+  <div className="newsletter-form">
+    <input
+      type="email"
+      placeholder="Enter your email"
+      className="newsletter-input"
+    />
+    <button className="newsletter-button">Subscribe</button>
+  </div>
+</div>
     </div>
   );
 }
